@@ -1,5 +1,7 @@
 package java_vizsga_2;
 
+import java.util.Scanner;
+
 public class Vizsga2 {
 
 	public static void main(String[] args) {
@@ -20,8 +22,35 @@ public class Vizsga2 {
 		System.out.println();
 		System.out.println("3. feladat");
 		System.out.println("Boolean változó ismeretében"
-				+ " byte változót állítgatunk (true => 1, false => 0) adatbekérés alapján");
+				+ " byte változót állítgatunk (true => 1, false => 0) adatbekérés alapján.");
 		System.out.println();
+		setByteValue();
+	}
+
+	private static void setByteValue() {
+		Scanner scanner = new Scanner(System.in);
+		boolean trueOrFalse = false;
+		byte byteVariable;
+		while(true) {
+		System.out.println("igaz (true), hamis (false) vagy lépjen ki?");
+		String answer = scanner.nextLine();
+		switch(answer.toLowerCase()) {
+		case "igaz":
+		case "true":
+			trueOrFalse = true;
+			break;
+		case "hamis":
+		case "false":
+			trueOrFalse = false;
+			break;
+		default:
+			System.out.println("Köszönjük a résztvételt!");
+			scanner.close();
+			System.exit(0);
+		}
+		byteVariable = (byte) (trueOrFalse == true ? 1 : 0);
+		System.out.println("Byte változónk értéke most " + byteVariable + ".");
+		}
 	}
 
 	public static void displayMinAndMaxValue(Class<?> type, Number min, Number max) {
